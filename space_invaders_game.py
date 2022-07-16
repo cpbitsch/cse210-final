@@ -12,6 +12,8 @@ from bullet import Bullet
 
 import win
 
+import space_invaders_game
+
 
 def start():
     pygame.init()
@@ -28,8 +30,13 @@ def start():
 
     game_over_font = pygame.font.Font('freesansbold.ttf', 64)
     def game_over():
-        game_over_text = GAME_OVER_FONT.render("GAME OVER", True, (255,255,255))
+        game_over_text = game_over_font.render("GAME OVER",
+                                            True, (255,0,0))
         screen.blit(game_over_text, (190, 250))
+        restart_text_font = pygame.font.Font('freesansbold.ttf', 20)
+        restart_text = restart_text_font.render("PRESS R to Play again...",
+                                            True, (0,102,0))
+        screen.blit(restart_text, (270, 350))  
 
     screen = constants.SCREEN
 
@@ -54,6 +61,9 @@ def start():
 
 
             if event.type == pygame.KEYDOWN:
+                ## Code for restarting the game
+                if event.key == pygame.K_r:
+                    space_invaders_game.start()
                 if event.key == pygame.K_LEFT:
                     player._Xchange = -1.7
                 if event.key == pygame.K_RIGHT:
