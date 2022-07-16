@@ -28,10 +28,14 @@ def show_score(x, y):
                         True, (255,255,255))
     screen.blit(score, (x , y ))
  
-def game_over():
+def game_over():    
     game_over_text = game_over_font.render("GAME OVER",
-                                           True, (255,255,255))
+                                        True, (255,0,0))
     screen.blit(game_over_text, (190, 250))
+    restart_text_font = pygame.font.Font('freesansbold.ttf', 20)
+    restart_text = restart_text_font.render("PRESS R to Play again...",
+                                        True, (0,102,0))
+    screen.blit(restart_text, (270, 350))                                    
  
 mixer.music.load('data/background.wav')
 mixer.music.play(-1)
