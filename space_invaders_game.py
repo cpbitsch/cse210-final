@@ -2,6 +2,7 @@ import pygame
 import random
 import math
 from pygame import mixer
+import pygame_menu
 
 import constants
 
@@ -125,7 +126,7 @@ def start():
         if score._score_val == 25:
             mixer.music.unload()
             
-            win.win_menu()
+            win_menu()
             
             pygame.quit()
             quit()
@@ -134,4 +135,20 @@ def start():
         score.show_score(score._scoreX, score._scoreY)
         pygame.display.update()
 
-# start()
+def win_menu():
+    pygame.init()
+    surface = pygame.display.set_mode((800,600))
+
+    def restart_the_game():
+        # Do the job here !
+        start()
+
+    menu = pygame_menu.Menu('Space Invaders', 600, 500, theme=pygame_menu.themes.THEME_BLUE)
+
+    menu.add.text_input("You win!")
+    menu.add.button('Play', restart_the_game)
+    menu.add.button('Quit', pygame_menu.events.EXIT)
+
+    menu.mainloop(surface)
+
+start()

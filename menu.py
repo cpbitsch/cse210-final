@@ -12,13 +12,22 @@ def start_the_game():
 
 def help_menu():
     # Do the job here !
-    pass
+    menu = pygame_menu.Menu('Space Invaders', 600, 500, theme=pygame_menu.themes.THEME_BLUE)
 
-menu = pygame_menu.Menu('Space Invaders', 600, 500, theme=pygame_menu.themes.THEME_BLUE)
+    menu.add.label('Space to fire')
+    menu.add.label('Left and Right arrow keys to move')
+    menu.add.button('Back', main)
 
-menu.add.text_input("Welcome to Space Invaders")
-menu.add.button('Play', start_the_game)
-menu.add.button('Help', help_menu)
-menu.add.button('Quit', pygame_menu.events.EXIT)
+    menu.mainloop(surface)
 
-menu.mainloop(surface)
+def main():
+    menu = pygame_menu.Menu('Space Invaders', 600, 500, theme=pygame_menu.themes.THEME_BLUE)
+
+    menu.add.text_input("Welcome to Space Invaders")
+    menu.add.button('Play', start_the_game)
+    menu.add.button('Help', help_menu)
+    menu.add.button('Quit', pygame_menu.events.EXIT)
+
+    menu.mainloop(surface)
+
+main()

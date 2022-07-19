@@ -2,6 +2,11 @@
 
 Space Invaders
 
+***
+To start the game, run the menu file
+***
+
+
 Menu: Jacob
     Start button: go to game screen
     Help button: go to help screen

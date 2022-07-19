@@ -1,6 +1,5 @@
 import pygame
 import pygame_menu
-import space_invaders_game
 
 def win_menu():
     pygame.init()
@@ -8,7 +7,7 @@ def win_menu():
 
     def restart_the_game():
         # Do the job here !
-        space_invaders_game.start()
+        start()
 
     menu = pygame_menu.Menu('Space Invaders', 600, 500, theme=pygame_menu.themes.THEME_BLUE)
 
