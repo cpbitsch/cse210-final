@@ -3,7 +3,7 @@
 Space Invaders
 
 ***
-To start the game, run the menu file
+To start the game, run the space_invaders_game.py file
 ***
 
 

@@ -15,9 +15,34 @@ import win
 
 import space_invaders_game
 
+pygame.init()
+surface = pygame.display.set_mode((800,600))
+
+def start_the_game():
+    # Do the job here !
+    start()
+
+def help_menu():
+    # Do the job here !
+    menu = pygame_menu.Menu('Space Invaders', 600, 500, theme=pygame_menu.themes.THEME_BLUE)
+
+    menu.add.label('Space to fire')
+    menu.add.label('Left and Right arrow keys to move')
+    menu.add.button('Back', main_menu)
+
+    menu.mainloop(surface)
+
+def main_menu():
+    menu = pygame_menu.Menu('Space Invaders', 600, 500, theme=pygame_menu.themes.THEME_BLUE)
+
+    menu.add.label("Welcome to Space Invaders")
+    menu.add.button('Play', start_the_game)
+    menu.add.button('Help', help_menu)
+    menu.add.button('Quit', pygame_menu.events.EXIT)
+
+    menu.mainloop(surface)
 
 def start():
-    pygame.init()
     GAME_OVER_FONT = pygame.font.Font('freesansbold.ttf', 64)
 
 
@@ -151,4 +176,4 @@ def win_menu():
 
     menu.mainloop(surface)
 
-start()
+main_menu()
